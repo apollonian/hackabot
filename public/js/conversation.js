@@ -276,7 +276,6 @@ var ConversationPanel = (function() {
   }
 
   function clickHandler(event, value) {
-    console.log(event, value);
     event.preventDefault;
     var context;
     var latestResponse = Api.getResponsePayload();
