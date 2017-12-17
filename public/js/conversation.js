@@ -181,7 +181,7 @@ var ConversationPanel = (function() {
       }
 
       // Move chat to the most recent messages when new messages are added
-      scrollToChatBottom();
+      // scrollToChatBottom();
     }
   }
 

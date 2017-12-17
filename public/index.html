@@ -14,10 +14,11 @@
 </head>
 
 <body>
-  <div class="header" style="display: block; height: 25vh; background: #FDFDFD;margin: 0 auto;text-align:center;line-height:25vh;border-bottom:1px solid #DDD">pi-Hackabot</div>
+  <div class="header" style="position:absolute;width: 100%;display: block; height: 25vh; background: #FDFDFD;margin: 0 auto;text-align:center;line-height:25vh;border-bottom:1px solid #DDD"></div>
   <div id="contentParent" class="responsive-columns-wrapper">
-    <div id="chat-column-holder" class="responsive-column content-column" style="padding-top: 10px">
+    <div id="chat-column-holder" class="responsive-column content-column" style="padding-top: 14px">
       <div class="chat-column">
+        <h3 style="text-align: center; margin: 6px;font-family: 'Rozha One';color:#363636;font-size: 20px">π-Hackabot</h3>
         <div id="scrollingChat"></div>
         <label for="textInput" class="inputOutline">
           <input id="textInput" class="input responsive-column" placeholder="Type something" type="text" onkeydown="ConversationPanel.inputKeyDown(event, this)">
@@ -38,6 +39,7 @@
   <script src="js/payload.js"></script>
   <script src="js/global.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Rozha+One" rel="stylesheet">
 </body>
 
 </html>
