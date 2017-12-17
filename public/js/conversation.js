@@ -137,7 +137,7 @@ var ConversationPanel = (function() {
       // Previous "latest" message is no longer the most recent
       if (previousLatest) {
         Common.listForEach(previousLatest, function(element) {
-          element.classList.remove('latest');
+          // element.classList.remove('latest');
         });
       }
 
@@ -156,10 +156,10 @@ var ConversationPanel = (function() {
             segmentLoad.classList.add('segments', 'load');
             segment.appendChild(segmentLoad);
             var fromWatson = document.createElement('div');
-            fromWatson.classList.add('from-watson');
+            fromWatson.classList.add('from-watson-bubble');
             segmentLoad.appendChild(fromWatson);
             var messageInner = document.createElement('div');
-            messageInner.classList.add('message-inner');
+            messageInner.classList.add('message-inner-bubble');
             fromWatson.appendChild(messageInner);
             var list = document.createElement('ul');
             list.classList.add('bubble-list');
