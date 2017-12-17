@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>piHackabot</title>
+  <title>π-Hackabot</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta property="og:image" content="conversation.svg" />
   <meta property="og:title" content="piHackabot" />
@@ -14,24 +14,17 @@
 </head>
 
 <body>
-  <div class="header" style="position:absolute;width:100%;display: block; height: 25vh; background:#FDFDFD;padding-left: 72px;border-bottom:1px solid #DDD;">
-    <h3 style="margin: 6px;font-family: 'Rozha One';color:#363636;font-size: 28px;line-height:25vh">π-Hackabot</h3>
+  <div class="header-logo" style="position: absolute; width: 100%; display: block; height: 25vh; background:#FDFDFD; padding-left: 72px; border-bottom:1px solid #DDD;">
+    <h3 class="logo" style="margin: 6px; font-family: 'Rozha One';color: #363636;font-size: 28px; line-height: 25vh">π-Hackabot</h3>
   </div>
   <div id="contentParent" class="responsive-columns-wrapper">
-    <div id="chat-column-holder" class="responsive-column content-column" style="padding-top: 20px;padding-bottom: 24px;">
+    <div id="chat-column-holder" class="responsive-column content-column" style="padding-top: 20px; padding-bottom: 24px;">
       <div class="chat-column">
         <div id="scrollingChat"></div>
         <label for="textInput" class="inputOutline">
           <input id="textInput" class="input responsive-column" placeholder="Type something" type="text" onkeydown="ConversationPanel.inputKeyDown(event, this)">
         </label>
       </div>
-    </div>
-    <div id="payload-column" class="fixed-column content-column" style="display: none !important">
-      <div id="payload-initial-message">
-        Type something to see the output
-      </div>
-      <div id="payload-request" class="payload"></div>
-      <div id="payload-response" class="payload"></div>
     </div>
   </div>
   <script src="js/common.js"></script>

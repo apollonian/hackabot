@@ -121,16 +121,6 @@ div {
   overflow: auto;
 }
 
-
-/* .chat-column {
-  height: 100%;
-  padding: 0.9375rem 0 0.2rem 0;
-  margin: auto;
-  text-align: left;
-  max-width: 30rem;
-  min-width: 9.375rem;
-} */
-
 .chat-column {
   margin: auto;
   padding: 12px 24px;
@@ -198,7 +188,6 @@ div {
   font-size: 1rem;
   color: #fff;
   line-height: 1.32rem;
-  /* background: #00b4a0; */
   background-color: #57ad4d;
   border-bottom-right-radius: 0;
   text-align: left;
@@ -380,5 +369,9 @@ html {
     width: 0;
     max-width: none;
     min-width: initial;
+  }
+  .header-logo {
+    text-align: center;
+    padding-left: 0 !important;
   }
 }
