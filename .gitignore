@@ -2,6 +2,7 @@ node_modules/
 dist/
 temp/
 .idea/
+.ipynb_checkpoints/
 coverage
 .env
 npm-debug.log
