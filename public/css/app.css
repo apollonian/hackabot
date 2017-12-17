@@ -143,7 +143,8 @@ div {
   position: relative;
   bottom: initial;
   right: initial;
-  width: 460px;
+  width: 94%;
+  max-width: 460px;
   z-index: 999;
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
