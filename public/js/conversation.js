@@ -3,7 +3,7 @@
 /* eslint no-unused-vars: "off" */
 /* global Api: true, Common: true*/
 
-var ConversationPanel = (function () {
+var ConversationPanel = (function() {
   var settings = {
     selectors: {
       chatBox: '#scrollingChat',
@@ -35,13 +35,13 @@ var ConversationPanel = (function () {
   // This causes the displayMessage function to be called when messages are sent / received
   function chatUpdateSetup() {
     var currentRequestPayloadSetter = Api.setRequestPayload;
-    Api.setRequestPayload = function (newPayloadStr) {
+    Api.setRequestPayload = function(newPayloadStr) {
       currentRequestPayloadSetter.call(Api, newPayloadStr);
       displayMessage(JSON.parse(newPayloadStr), settings.authorTypes.user);
     };
 
     var currentResponsePayloadSetter = Api.setResponsePayload;
-    Api.setResponsePayload = function (newPayloadStr) {
+    Api.setResponsePayload = function(newPayloadStr) {
       currentResponsePayloadSetter.call(Api, newPayloadStr);
       displayMessage(JSON.parse(newPayloadStr), settings.authorTypes.watson);
     };
@@ -63,10 +63,12 @@ var ConversationPanel = (function () {
     if (dummy === null) {
       var dummyJson = {
         tagName: 'div',
-        attributes: [{
-          name: 'id',
-          value: 'textInputDummy'
-        }]
+        attributes: [
+          {
+            name: 'id',
+            value: 'textInputDummy'
+          }
+        ]
       };
 
       dummy = Common.buildDomElement(dummyJson);
@@ -92,7 +94,7 @@ var ConversationPanel = (function () {
           'line-height',
           'text-transform',
           'letter-spacing'
-        ].forEach(function (index) {
+        ].forEach(function(index) {
           dummy.style[index] = window.getComputedStyle(input, null).getPropertyValue(index);
         });
         dummy.textContent = txtNode.textContent;
@@ -135,12 +137,12 @@ var ConversationPanel = (function () {
       );
       // Previous "latest" message is no longer the most recent
       if (previousLatest) {
-        Common.listForEach(previousLatest, function (element) {
+        Common.listForEach(previousLatest, function(element) {
           element.classList.remove('latest_new');
         });
       }
 
-      messageDivs.forEach(function (currentDiv) {
+      messageDivs.forEach(function(currentDiv) {
         chatBoxElement.appendChild(currentDiv);
         // Class to start fade in animation
         currentDiv.classList.add('load');
@@ -198,33 +200,46 @@ var ConversationPanel = (function () {
 
   // Constructs new DOM element from a message payload
   function buildMessageDomElements(newPayload, isUser) {
+    // if (newPayload.input.text.includes('define') == true) {
+    // } else {
     var textArray = isUser ? newPayload.input.text : newPayload.output.text;
     if (Object.prototype.toString.call(textArray) !== '[object Array]') {
       textArray = [textArray];
     }
     var messageArray = [];
 
-    textArray.forEach(function (currentText) {
+    textArray.forEach(function(currentText) {
       if (currentText) {
         var messageJson = {
           // <div class='segments'>
           tagName: 'div',
           classNames: ['segments'],
-          children: [{
-            // <div class='from-user/from-watson latest'>
-            tagName: 'div',
-            classNames: [isUser ? 'from-user' : 'from-watson', 'latest', 'latest_new', messageArray.length === 0 ? 'top' : 'sub'],
-            children: [{
-              // <div class='message-inner'>
+          children: [
+            {
+              // <div class='from-user/from-watson latest'>
               tagName: 'div',
-              classNames: ['message-inner'],
-              children: [{
-                // <p>{messageText}</p>
-                tagName: 'p',
-                text: currentText
-              }]
-            }]
-          }]
+              classNames: [
+                isUser ? 'from-user' : 'from-watson',
+                'latest',
+                'latest_new',
+                messageArray.length === 0 ? 'top' : 'sub'
+              ],
+              children: [
+                {
+                  // <div class='message-inner'>
+                  tagName: 'div',
+                  classNames: ['message-inner'],
+                  children: [
+                    {
+                      // <p>{messageText}</p>
+                      tagName: 'p',
+                      text: currentText
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         };
         messageArray.push(Common.buildDomElement(messageJson));
       }
@@ -232,6 +247,7 @@ var ConversationPanel = (function () {
 
     return messageArray;
   }
+  // }
 
   // Scroll to the bottom of the chat window (to the most recent messages)
   // Note: this method will bring the most recent user message into view,
